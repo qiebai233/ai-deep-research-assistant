@@ -3,13 +3,13 @@ blank_issues_enabled: false
 
 contact_links:
   - name: 文档（安装 / 配置 / 常见问题）
-    url: https://github.com/qiebai233/deepresearch/tree/main/docs
+    url: https://github.com/qiebai233/ai-deep-research-assistant/tree/main/docs
     about: 先看文档，绝大多数配置与用法问题都能在这里找到答案。
 
   - name: 安全问题（请勿公开）
-    url: https://github.com/qiebai233/deepresearch/security/advisories/new
+    url: https://github.com/qiebai233/ai-deep-research-assistant/security/advisories/new
     about: 报告安全漏洞请通过私密安全公告，不要创建公开 issue。
 
   - name: 讨论与提问
-    url: https://github.com/qiebai233/deepresearch/discussions
+    url: https://github.com/qiebai233/ai-deep-research-assistant/discussions
     about: 用法疑问、想法交流、展示你的报告。

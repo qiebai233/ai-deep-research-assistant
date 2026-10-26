@@ -52,5 +52,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 - `mock` 模式产出确定性示例内容，**不是真实调研结果**，仅用于演示与测试。
 - 单个搜索请求失败只会降级（返回空结果），不会重试整轮研究。
 
-[Unreleased]: https://github.com/qiebai233/deepresearch/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/qiebai233/deepresearch/releases/tag/v0.1.0
+[Unreleased]: https://github.com/qiebai233/ai-deep-research-assistant/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/qiebai233/ai-deep-research-assistant/releases/tag/v0.1.0

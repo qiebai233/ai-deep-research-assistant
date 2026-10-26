@@ -29,7 +29,7 @@
 需要 Python ≥ 3.10（CI 覆盖 3.10–3.13）与 Git。
 
 ```bash
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 python -m venv .venv
 

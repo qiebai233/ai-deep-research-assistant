@@ -7,11 +7,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/qiebai233/deepresearch/actions/workflows/ci.yml"><img src="https://github.com/qiebai233/deepresearch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/qiebai233/ai-deep-research-assistant/actions/workflows/ci.yml"><img src="https://github.com/qiebai233/ai-deep-research-assistant/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue" alt="Python 3.10+"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License: MIT"></a>
   <a href="pyproject.toml"><img src="https://img.shields.io/badge/runtime%20dependencies-0-brightgreen" alt="Zero runtime dependencies"></a>
-  <a href="https://github.com/qiebai233/deepresearch/releases"><img src="https://img.shields.io/github/v/release/qiebai233/deepresearch" alt="Latest release"></a>
+  <a href="https://github.com/qiebai233/ai-deep-research-assistant/releases"><img src="https://img.shields.io/github/v/release/qiebai233/ai-deep-research-assistant" alt="Latest release"></a>
 </p>
 
 > **AI 深度调研助手**：输入一个研究问题，Agent 自动完成检索、阅读、交叉验证、写作，输出带引用的研究报告。
@@ -19,7 +19,7 @@
 **30 秒离线体验**（不需要任何 API key，不联网）：
 
 ```bash
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 pip install -e .
 
@@ -96,7 +96,7 @@ flowchart LR
 
 ```bash
 # 从 GitHub 安装
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 pip install .
 

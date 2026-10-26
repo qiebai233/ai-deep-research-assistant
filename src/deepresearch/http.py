@@ -22,7 +22,7 @@ from .errors import FetchError
 __all__ = ["DEFAULT_USER_AGENT", "HttpClient", "HttpError", "HttpResponse"]
 
 DEFAULT_USER_AGENT = (
-    "Mozilla/5.0 (compatible; DeepResearch/0.1; +https://github.com/qiebai233/deepresearch)"
+    "Mozilla/5.0 (compatible; DeepResearch/0.1; +https://github.com/qiebai233/ai-deep-research-assistant)"
 )
 
 _RETRY_STATUS = {408, 425, 429, 500, 502, 503, 504}

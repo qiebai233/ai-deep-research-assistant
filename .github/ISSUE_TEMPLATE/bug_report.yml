@@ -11,7 +11,7 @@ body:
         提交前请确认：
         - 已搜索现有 issue，避免重复；
         - 已隐藏所有 API key / token / 个人隐私；
-        - 如果是安全问题，请**不要**在这里公开，按 [SECURITY.md](https://github.com/qiebai233/deepresearch/blob/main/SECURITY.md) 私下报告。
+        - 如果是安全问题，请**不要**在这里公开，按 [SECURITY.md](https://github.com/qiebai233/ai-deep-research-assistant/blob/main/SECURITY.md) 私下报告。
 
   - type: textarea
     id: what-happened

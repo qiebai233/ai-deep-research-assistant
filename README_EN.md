@@ -7,11 +7,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/qiebai233/deepresearch/actions/workflows/ci.yml"><img src="https://github.com/qiebai233/deepresearch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/qiebai233/ai-deep-research-assistant/actions/workflows/ci.yml"><img src="https://github.com/qiebai233/ai-deep-research-assistant/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue" alt="Python 3.10+"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License: MIT"></a>
   <a href="pyproject.toml"><img src="https://img.shields.io/badge/runtime%20dependencies-0-brightgreen" alt="Zero runtime dependencies"></a>
-  <a href="https://github.com/qiebai233/deepresearch/releases"><img src="https://img.shields.io/github/v/release/qiebai233/deepresearch" alt="Latest release"></a>
+  <a href="https://github.com/qiebai233/ai-deep-research-assistant/releases"><img src="https://img.shields.io/github/v/release/qiebai233/ai-deep-research-assistant" alt="Latest release"></a>
 </p>
 
 > **AI deep-research assistant**: ask one question and an agent searches, reads, cross-checks and
@@ -20,7 +20,7 @@
 **30-second offline demo** (no API key, no network):
 
 ```bash
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 pip install -e .
 
@@ -99,7 +99,7 @@ Requires Python **3.10+**. No runtime dependencies.
 | Source + tests | `python run_tests.py` | development and contributions |
 
 ```bash
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 pip install .
 

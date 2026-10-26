@@ -12,7 +12,7 @@
 ## 1. 30 秒离线体验（不用 key、不联网）
 
 ```bash
-git clone https://github.com/qiebai233/deepresearch.git
+git clone https://github.com/qiebai233/ai-deep-research-assistant.git
 cd deepresearch
 
 # 免安装直接运行（把 src/ 放进 PYTHONPATH）
