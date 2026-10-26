@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="DeepResearch — AI 深度调研助手：一个提问，一份带引用的研究报告。零第三方依赖，本地运行。">
+  <title>DeepResearch · AI 深度调研助手</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234f46e5'/%3E%3Cpath d='M9 23V9h6.2a7 7 0 0 1 0 14H9Zm4.2-3.6h2a3.4 3.4 0 0 0 0-6.8h-2v6.8Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#question">跳到输入框</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.5 19.5 10 14"></path>
+          <circle cx="13" cy="9" r="5.5"></circle>
+          <path d="M17 13.5 20 16.5"></path>
+        </svg>
+      </span>
+      <span class="brand-name">DeepResearch</span>
+      <span class="brand-version" id="version">v0.1.0</span>
+    </div>
+    <div class="topbar-actions">
+      <span class="status status--pending" id="status-badge" title="">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="status-text" data-i18n="status_connecting">连接后端…</span>
+      </span>
+      <button class="ghost-button" id="lang-toggle" type="button"
+              aria-label="Switch language" title="English / 中文">EN</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero" id="hero">
+      <p class="eyebrow" data-i18n="eyebrow">AI 深度调研助手</p>
+      <h1 data-i18n="hero_title">一个提问，一份带引用的深度报告。</h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        自动拆解问题、多轮检索、抓取正文、反思补检，最后写成分节 Markdown 报告 —
+        全程在本地运行，零第三方依赖。
+      </p>
+      <ul class="meta-line" id="meta-line">
+        <li id="meta-provider" class="meta-item">—</li>
+        <li id="meta-model" class="meta-item">—</li>
+        <li id="meta-search" class="meta-item">—</li>
+        <li id="meta-mode" class="meta-item pill">—</li>
+      </ul>
+    </section>
+
+    <section class="card compose" id="compose">
+      <label class="field-label" for="question" data-i18n="question_label">研究问题</label>
+      <textarea id="question" class="question-input" rows="5" maxlength="2000"
+                data-i18n-placeholder="question_placeholder"
+                placeholder="例如：固态电池在 2025 年的产业化进展如何？主要玩家和瓶颈是什么？"></textarea>
+
+      <fieldset class="depth-picker">
+        <legend class="field-label" data-i18n="depth_label">调研深度</legend>
+        <div class="depth-options">
+          <label class="depth-option">
+            <input type="radio" name="depth" value="quick" checked>
+            <span class="depth-body">
+              <span class="depth-name" data-i18n="depth_quick">快速</span>
+              <small class="depth-desc" data-i18n="depth_quick_desc">3 子问题 · 1 轮</small>
+            </span>
+          </label>
+          <label class="depth-option">
+            <input type="radio" name="depth" value="standard">
+            <span class="depth-body">
+              <span class="depth-name" data-i18n="depth_standard">标准</span>
+              <small class="depth-desc" data-i18n="depth_standard_desc">5 子问题 · 2 轮</small>
+            </span>
+          </label>
+          <label class="depth-option">
+            <input type="radio" name="depth" value="deep">
+            <span class="depth-body">
+              <span class="depth-name" data-i18n="depth_deep">深度</span>
+              <small class="depth-desc" data-i18n="depth_deep_desc">7 子问题 · 3 轮</small>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="examples">
+        <span class="examples-label" data-i18n="examples_label">试试：</span>
+        <div class="chips" id="examples"></div>
+      </div>
+
+      <div class="compose-actions">
+        <p class="hint" data-i18n="submit_hint">Ctrl + Enter 快速提交 · 全部在本地运行</p>
+        <button class="primary-button" id="submit" type="button">
+          <span data-i18n="start">开始调研</span>
+          <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+    </section>
+
+    <section class="card research" id="research" hidden>
+      <header class="research-head">
+        <div class="research-title">
+          <p class="eyebrow" data-i18n="research_kicker">正在调研</p>
+          <h2 id="research-question"></h2>
+        </div>
+        <span class="pill" id="research-depth"></span>
+      </header>
+
+      <div class="progress">
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+             aria-valuenow="0" id="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progress-stage" data-i18n="progress_waiting">准备中…</span>
+          <span id="progress-percent" class="progress-percent">0%</span>
+        </div>
+      </div>
+
+      <ol class="log" id="log" aria-live="polite" aria-relevant="additions"></ol>
+
+      <div class="run-error" id="run-error" hidden>
+        <p class="run-error-title" data-i18n="run_error_title">调研中断了</p>
+        <p class="run-error-text" id="run-error-text"></p>
+        <button class="secondary-button" id="retry" type="button" data-i18n="retry">重试</button>
+      </div>
+    </section>
+
+    <section class="result" id="result" hidden>
+      <div class="card summary-card">
+        <div class="summary-head">
+          <div>
+            <p class="eyebrow" data-i18n="result_kicker">调研完成</p>
+            <h2 id="report-title"></h2>
+          </div>
+          <div class="summary-actions">
+            <button class="secondary-button" type="button" data-action="download-md">
+              <span aria-hidden="true">↓</span>
+              <span data-i18n="download_md">report.md</span>
+            </button>
+            <button class="secondary-button" type="button" data-action="download-json">
+              <span aria-hidden="true">↓</span>
+              <span data-i18n="download_json">result.json</span>
+            </button>
+            <button class="secondary-button" type="button" data-action="copy">
+              <span aria-hidden="true">⧉</span>
+              <span data-i18n="copy">复制 Markdown</span>
+            </button>
+          </div>
+        </div>
+        <p class="summary-text" id="summary-text"></p>
+        <ul class="takeaways" id="takeaways"></ul>
+        <ul class="stats" id="stats"></ul>
+      </div>
+
+      <article class="card report markdown" id="report"></article>
+
+      <div class="result-footer">
+        <button class="primary-button" id="new-research" type="button">
+          <span data-i18n="new_research">新建调研</span>
+          <span class="button-arrow" aria-hidden="true">↺</span>
+        </button>
+      </div>
+    </section>
+
+    <noscript>
+      <p class="card noscript-note">DeepResearch Web UI 需要启用 JavaScript。/ JavaScript is required.</p>
+    </noscript>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footer_note">零第三方依赖 · 本地运行 · 报告由 AI 生成，请核实关键数据</span>
+    <span class="footer-version" id="footer-version"></span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

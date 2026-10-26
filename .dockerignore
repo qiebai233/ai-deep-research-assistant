@@ -1,0 +1,57 @@
+# Git / CI
+.git
+.gitignore
+.github
+.githooks
+
+# 不要进镜像：本地配置与密钥
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# 本地运行产物
+reports
+.deepresearch
+*.trace.jsonl
+tmp
+scratch
+
+# 开发 / 测试
+.venv
+venv
+env
+__pycache__
+*.py[cod]
+*.egg-info
+.eggs
+build
+dist
+site
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.coverage
+.coverage.*
+htmlcov
+coverage.xml
+.tox
+.nox
+tests
+docs
+examples
+scripts
+assets
+
+# 编辑器 / 系统
+.idea
+.vscode
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# 保留文档与开源元数据（构建只读 README/license）
+# 这里不排除 LICENSE、README.md、CHANGELOG.md、CONTRIBUTING.md 等

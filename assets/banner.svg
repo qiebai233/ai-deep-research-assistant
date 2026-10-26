@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="140" viewBox="0 0 400 140" role="img" aria-labelledby="title desc">
+  <title id="title">DeepResearch — AI 深度调研助手</title>
+  <desc id="desc">深色横幅：产品名 DeepResearch，AI 深度调研助手，一次提问自动完成检索、阅读、交叉验证与带引用报告。</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#0d1729"/>
+      <stop offset="1" stop-color="#12203c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.16" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.20"/>
+      <stop offset="0.55" stop-color="#3b82f6" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#0b1220" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.6" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.7" fill="#1e3a5f" opacity="0.55"/>
+    </pattern>
+    <clipPath id="frame">
+      <rect width="400" height="140" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="400" height="140" fill="url(#bg)"/>
+    <rect width="400" height="140" fill="url(#dots)" opacity="0.6"/>
+    <rect width="400" height="140" fill="url(#glow)"/>
+
+    <!-- top accent line -->
+    <rect x="0" y="0" width="400" height="2.5" fill="url(#accent)" opacity="0.9"/>
+
+    <!-- research / synthesis network icon -->
+    <g>
+      <circle cx="56" cy="70" r="30" fill="none" stroke="#1e3a5f" stroke-width="1"/>
+      <circle cx="56" cy="70" r="30" fill="none" stroke="#38bdf8" stroke-width="1"
+              stroke-dasharray="3 5" opacity="0.45"/>
+      <g stroke="#38bdf8" stroke-width="1.1" opacity="0.5">
+        <line x1="56" y1="70" x2="56" y2="42"/>
+        <line x1="56" y1="70" x2="36" y2="70"/>
+        <line x1="56" y1="70" x2="76" y2="70"/>
+        <line x1="56" y1="70" x2="56" y2="98"/>
+        <line x1="56" y1="70" x2="42" y2="52"/>
+        <line x1="56" y1="70" x2="70" y2="88"/>
+      </g>
+      <circle cx="56" cy="70" r="4" fill="#22d3ee"/>
+      <circle cx="56" cy="42" r="3" fill="#60a5fa"/>
+      <circle cx="36" cy="70" r="3" fill="#60a5fa"/>
+      <circle cx="76" cy="70" r="3" fill="#60a5fa"/>
+      <circle cx="56" cy="98" r="3" fill="#60a5fa"/>
+      <circle cx="42" cy="52" r="2.2" fill="#818cf8" opacity="0.9"/>
+      <circle cx="70" cy="88" r="2.2" fill="#818cf8" opacity="0.9"/>
+    </g>
+
+    <!-- wordmark -->
+    <text x="100" y="53" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          font-size="27" font-weight="700" letter-spacing="0.2" fill="#e8eefc">DeepResearch</text>
+    <text x="101" y="76" font-family="'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+          font-size="12.5" font-weight="600" letter-spacing="0.6" fill="#22d3ee">AI 深度调研助手</text>
+    <text x="100" y="96" font-family="'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+          font-size="8.6" letter-spacing="0.2" fill="#8fa3bf">一次提问 · 检索/阅读 · 交叉验证 · 输出带引用报告</text>
+
+    <!-- capability pill -->
+    <rect x="100" y="105" width="212" height="17" rx="8.5" fill="#0f1a2e" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="206" y="117.2" text-anchor="middle"
+          font-family="'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+          font-size="7.8" fill="#7dd3fc">Zero-dependency · Python 3.10+ · MIT</text>
+
+    <!-- version tag -->
+    <text x="384" y="21" text-anchor="end"
+          font-family="'SFMono-Regular', Consolas, monospace"
+          font-size="7.5" fill="#475569">v0.1.0</text>
+  </g>
+
+  <rect x="0.5" y="0.5" width="399" height="139" rx="13.5" fill="none" stroke="#1e293b" stroke-width="1"/>
+</svg>

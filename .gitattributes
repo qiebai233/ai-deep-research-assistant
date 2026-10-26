@@ -1,0 +1,26 @@
+# Normalise line endings: LF in the repository, platform default on checkout.
+* text=auto eol=lf
+
+# Explicitly text
+*.py        text eol=lf
+*.md        text eol=lf
+*.toml      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.json      text eol=lf
+*.sh        text eol=lf
+*.ps1       text eol=crlf
+Makefile    text eol=lf
+.env.example text eol=lf
+
+# Binaries
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.webp      binary
+*.zip       binary
+
+# SVG is text, but diff noise is not useful: mark as generated.
+*.svg       text eol=lf

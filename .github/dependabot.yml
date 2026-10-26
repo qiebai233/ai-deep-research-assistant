@@ -1,0 +1,65 @@
+# Dependabot：自动更新开发依赖、GitHub Actions 与 Docker 基础镜像。
+#
+# 说明：
+# - 运行时零第三方依赖，这里的更新只影响开发/CI 工具与构建镜像；
+# - 每周一 04:00（Asia/Shanghai）检查一次，同类更新合并为一个 PR，减少噪音；
+# - 依赖升级 PR 仍需 CI 全绿 + 人工 review 才会合并。
+version: 2
+
+updates:
+  # 开发依赖（pyproject.toml 的 [project.optional-dependencies].dev）
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions 版本
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ci"
+    commit-message:
+      prefix: "ci"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # Docker 基础镜像（python:3.12-slim）
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Asia/Shanghai"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "docker"
